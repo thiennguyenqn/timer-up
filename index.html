@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Đếm giờ</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <label id="hours">00</label>:<label id="minutes">00</label>:<label id="seconds">00</label>
+</body>
+<script>
+  var hoursTimer = document.getElementById("hours");
+  var minutesTimer = document.getElementById("minutes");
+  var secondsTimer = document.getElementById("seconds");
+  var totalSeconds = 0;
+  setInterval(setTime, 1000);
+
+  function setTime() {
+    ++totalSeconds;
+    secondsTimer.innerHTML = pad(totalSeconds % 60);
+    minutesTimer.innerHTML = pad(parseInt(totalSeconds / 60));
+    hoursTimer.innerHTML = pad(parseInt(totalSeconds / 3600));
+  }
+
+  function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+  }
+</script>
+</html>
