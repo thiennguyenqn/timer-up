@@ -7,17 +7,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Đếm giờ</title>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-
 </head>
-</head>
-
 <body>
-  <div id="time">00:00:00</div>
+  <div id="time"></div>
 </body>
 <script>
   var timeln, time, hours, minutes, seconds;
-  timeln = document.getElementById("time");
-  time = timeln.innerHTML;
+  showtime = document.getElementById("time");
+  time = showtime.innerHTML;
   hours = 0;
   minutes = 0;
   seconds = 0;
@@ -33,9 +30,10 @@
       hours++;
       minutes = 0;
     }
-    timeln.innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+    showtime.innerHTML = pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
     setTimeout(timerUp, 1000);
   }
+  
   function pad(val) {
     var valString = val + "";
     if (valString.length < 2) {
@@ -43,5 +41,4 @@
     } else return valString;
   }
 </script>
-
 </html>
